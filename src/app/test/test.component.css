@@ -1,0 +1,14 @@
+th{
+    padding: 20px;
+}
+td{
+    padding: 20px;
+}
+.even{
+    background-color: cyan;
+    
+}
+.odd{
+    background-color: red;
+    color: white;
+}

@@ -1,2 +1,9 @@
 <h3>I am learning Angular</h3>
-<app-test></app-test>
+<div [ngSwitch]="role">
+    <div *ngSwitchCase="'user'">Welcome user</div>
+    <div *ngSwitchCase="'charan'"> 
+        <app-test></app-test>
+    </div>
+    <div *ngSwitchDefault> You re not authorized {{role}}</div>
+</div>
+
