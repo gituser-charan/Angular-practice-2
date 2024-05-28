@@ -11,7 +11,8 @@
 </div>
 <div *ngIf = "topics.topics_covered && topics.topics_covered > 0">
     Topics List 
-    <table>
+    {{topiclist | json}}
+    <table class='table'>
         <tr><th>Index</th>
             <th>Even/Odd</th>
             <th>Topic name</th>
@@ -23,10 +24,10 @@
         *ngFor="let topic of topiclist;let e=even; let o=odd; let i = index">
             <td>{{i+1}}</td>
             <td>{{e?"even":"odd"}}
-            <td>{{topic.name}}</td>
+            <td>{{topic.name | titlecase}}</td> 
             <td>{{formatTime(topic.start_time)}}</td>
             <td>{{formatTime(topic.end_time)}}</td>
-            <td>{{topic.duration}}</td>
+            <td>{{topic.duration }}</td>
         </tr>
     </table>
 </div>
