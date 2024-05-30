@@ -1,0 +1,27 @@
+<p>topics-lst works!</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Index</th>
+      <th>Even/Odd</th>
+      <th>Topic name</th>
+      <th>Start time</th>
+      <th>End time</th>
+      <th>Duration</th>
+      <th>Selected topic</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="let topic of topics; let e = even; let o = odd; let i = index"
+      [ngClass]="e ? 'even' : 'odd'">
+      <td>{{ i + 1 }}</td>
+      <td>{{ e ? "even":"odd" }}</td>
+      <td>{{ topic.name | titlecase }}</td>
+      <td>{{ formatTime(topic.start_time) }}</td>
+      <td>{{ formatTime(topic.end_time) }}</td>
+      <td>{{ topic.duration }}</td>
+      <td><button class="btn btn-primary" (click)="selecttopic(topic)">Selecte topic</button></td>
+    </tr>
+  </tbody>
+</table>

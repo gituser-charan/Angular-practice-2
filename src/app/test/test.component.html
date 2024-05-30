@@ -11,23 +11,11 @@
 </div>
 <div *ngIf = "topics.topics_covered && topics.topics_covered > 0">
     Topics List 
-    {{topiclist | json}}
-    <table class='table'>
-        <tr><th>Index</th>
-            <th>Even/Odd</th>
-            <th>Topic name</th>
-            <th>Start time</th>
-            <th>End time</th>
-            <th>Duration</th>
-        </tr >
-        <tr [ngClass]="e? 'even':'odd'"
-        *ngFor="let topic of topiclist;let e=even; let o=odd; let i = index">
-            <td>{{i+1}}</td>
-            <td>{{e?"even":"odd"}}
-            <td>{{topic.name | titlecase}}</td> 
-            <td>{{formatTime(topic.start_time)}}</td>
-            <td>{{formatTime(topic.end_time)}}</td>
-            <td>{{topic.duration }}</td>
-        </tr>
-    </table>
+    
+    <app-topics-lst [topics] = 'topiclist'
+    (topicSelected)="selecttopic($event)"></app-topics-lst>
+    
+</div>
+<div *ngIf = "topicSelected">
+    {{topicSelected | json}}
 </div>
